@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html ng-app="chat">
+<script src="js/main.js"></script>
+
+<body ng-app="chat" >
+<div ng-controller="AllMessagesController">
+
+
+        <h2>Messages</h2>
+    <div class="panel panel-default" ng-repeat="message in messages">
+
+        <div class="row">
+            <div class="col-md-2">
+                <div class="panel-default"> {{message.id}}</div>
+            </div>
+            <div class="col-md-2">
+                <div class="panel-default"> {{message.message}}</div>
+            </div>
+        </div>>
+    </div>
+    </div>
+
+
+</div>
+
+</body>
+</html>
