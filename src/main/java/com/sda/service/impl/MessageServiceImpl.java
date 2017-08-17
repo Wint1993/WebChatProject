@@ -8,6 +8,9 @@ import com.sda.repository.ClientRepository;
 import com.sda.repository.MessageRepository;
 import com.sda.service.MessageService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageImpl;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -38,9 +41,19 @@ public class MessageServiceImpl implements MessageService {
 
     @Override
     public List<MessageDTO> findAll() {
-        return messageMapper.toMessageDTOList(messageRepository.findAll());
+        return (List)messageMapper.toMessageDTOList(messageRepository.findAll());
     }
 
+   /* @Override
+    public List<MessageDTO> findAllMessagesForUser(){
+        return messageMapper.toMessageDTOList(messageRepository.findByClientUuid(LoggedUserUtils.getLoggedUser().getUuid()))
 
+    }*/
+
+    /*@Override
+    public Page<Message> findAll(Pageable pageable) {
+        //return new PageImpl<MessageDTO>(messageMapper.toMessageDTOList(messageRepository.findAll()));
+        return messageRepository.findAll(pageable);
+    }*/
 
 }

@@ -1,14 +1,17 @@
 package com.sda.dto;
 
+import org.mapstruct.Mapping;
+
 import java.time.LocalTime;
 
 public class MessageDTO {
 
     private Long id;
     private String message;
+
     private ClientDTO from;
     private ClientDTO to;
-    private LocalTime localTime;
+   // private LocalTime localTime;
 
     public MessageDTO(){}
 
@@ -44,11 +47,11 @@ public class MessageDTO {
         this.to = to;
     }
 
-    public LocalTime getLocalTime() {
+    /*public LocalTime getLocalTime() {
         return localTime;
     }
 
     public void setLocalTime(LocalTime localTime) {
         this.localTime = localTime;
-    }
+    }*/
 }

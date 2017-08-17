@@ -23,8 +23,8 @@ public class Client {
 
     private String uuid;
 
-   // @OneToMany(mappedBy = "from", cascade = {CascadeType.ALL})
-  //  private List<Message> messagesSent = new ArrayList<>();
+    @OneToMany(mappedBy = "clientFrom", cascade = {CascadeType.ALL})
+    private List<Message> messagesSent = new ArrayList<>();
 
 
     public Client(Long id, String firstName, String lastName, String email,String uuid){
@@ -78,16 +78,14 @@ public class Client {
         this.uuid = uuid;
     }
 
-   /* public List<Message> getMessagesSent() {
+    public List<Message> getMessagesSent() {
         return messagesSent;
     }
-
     public void setMessagesSent(List<Message> messagesSent) {
         this.messagesSent = messagesSent;
     }
-*/
 
-    public static class Builder{
+   public static class Builder{
 
         private Long id;
         private String firstName;
@@ -129,6 +127,7 @@ public class Client {
             return new Client(id,firstName,lastName,email,uuid);
         }
     }
+
 
 }
 

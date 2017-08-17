@@ -8,7 +8,7 @@ public class ClientDTO {
 
   private String lastName;
 
-  public ClientDTO(){
+    public ClientDTO(){
 
   }
 
@@ -34,5 +34,14 @@ public class ClientDTO {
 
     public void setLastName(String lastName) {
         this.lastName = lastName;
+    }
+
+    @Override
+    public String toString() {
+        return "ClientDTO{" +
+                "uuid='" + uuid + '\'' +
+                ", firstName='" + firstName + '\'' +
+                ", lastName='" + lastName + '\'' +
+                '}';
     }
 }

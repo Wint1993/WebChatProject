@@ -13,7 +13,7 @@ public class Message {
 
     private String message;
 
-    private LocalTime time;
+   // private LocalTime time;
 
     @ManyToOne(cascade = {CascadeType.ALL})
     @JoinColumn(name = "client_from")
@@ -22,6 +22,13 @@ public class Message {
     @ManyToOne
     @JoinColumn(name = "client_to")
     private Client clientTo;
+
+ /*   public Message(Long id, String message, Client clientFrom, Client clientTo){
+        this.id = id;
+        this.message = message;
+        this.clientFrom = clientFrom;
+        this.clientTo = clientTo;
+    }*/
 
     public Message(){}
 
@@ -57,11 +64,11 @@ public class Message {
         this.clientTo = clientTo;
     }
 
-    public LocalTime getTime() {
+   /* public LocalTime getTime() {
         return time;
     }
 
     public void setTime(LocalTime time) {
         this.time = time;
-    }
+    }*/
 }

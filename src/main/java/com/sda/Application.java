@@ -1,5 +1,9 @@
 package com.sda;
 
+import com.sda.model.Client;
+import com.sda.repository.ClientRepository;
+import org.junit.Test;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
@@ -19,11 +23,13 @@ import static springfox.documentation.builders.PathSelectors.regex;
 @SpringBootApplication
 @EnableSwagger2
 public class Application {
-
+  // testowanie za pomocą mokito
 
     public static void main(String[] args) {
         SpringApplication.run(Application.class, args);
     }
+
+
 
     @Bean
     public Docket newsApi() {

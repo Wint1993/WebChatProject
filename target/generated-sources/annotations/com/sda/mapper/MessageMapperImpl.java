@@ -5,15 +5,19 @@ import com.sda.model.Message;
 import java.util.ArrayList;
 import java.util.List;
 import javax.annotation.Generated;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 @Generated(
     value = "org.mapstruct.ap.MappingProcessor",
-    date = "2017-08-01T18:12:38+0200",
+    date = "2017-08-12T14:21:30+0200",
     comments = "version: 1.2.0.Beta3, compiler: javac, environment: Java 1.8.0_112 (Oracle Corporation)"
 )
 @Component
 public class MessageMapperImpl implements MessageMapper {
+
+    @Autowired
+    private ClientMapper clientMapper;
 
     @Override
     public Message toMessage(MessageDTO messageDTO) {
@@ -23,6 +27,8 @@ public class MessageMapperImpl implements MessageMapper {
 
         Message message = new Message();
 
+        message.setClientFrom( clientMapper.toClient( messageDTO.getFrom() ) );
+        message.setClientTo( clientMapper.toClient( messageDTO.getTo() ) );
         message.setId( messageDTO.getId() );
         message.setMessage( messageDTO.getMessage() );
 
@@ -37,6 +43,8 @@ public class MessageMapperImpl implements MessageMapper {
 
         MessageDTO messageDTO = new MessageDTO();
 
+        messageDTO.setFrom( clientMapper.toClientDTO( message.getClientFrom() ) );
+        messageDTO.setTo( clientMapper.toClientDTO( message.getClientTo() ) );
         messageDTO.setId( message.getId() );
         messageDTO.setMessage( message.getMessage() );
 
