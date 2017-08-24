@@ -1,0 +1,22 @@
+{
+  "name": "d",
+  "version": "1.0.0",
+  "description": "something",
+  "main": "main.js",
+  "scripts": {
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "none"
+  },
+  "keywords": [
+    "npm"
+  ],
+  "author": "blazej",
+  "license": "ISC",
+  "dependencies": {
+    "angular-smart-table": "^2.1.8"
+  },
+  "devDependencies": {}
+}

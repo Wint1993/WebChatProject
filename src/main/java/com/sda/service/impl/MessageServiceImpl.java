@@ -8,11 +8,13 @@ import com.sda.repository.ClientRepository;
 import com.sda.repository.MessageRepository;
 import com.sda.service.MessageService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.domain.Page;
-import org.springframework.data.domain.PageImpl;
-import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.*;
+import org.springframework.data.repository.PagingAndSortingRepository;
 import org.springframework.stereotype.Service;
 
+import javax.transaction.Transactional;
+import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.List;
 
 @Service
@@ -27,6 +29,7 @@ public class MessageServiceImpl implements MessageService {
 
     @Autowired
     private ClientRepository clientRepository;
+
 
     @Override
     public MessageDTO create(MessageDTO messageDTO){
@@ -44,16 +47,25 @@ public class MessageServiceImpl implements MessageService {
         return (List)messageMapper.toMessageDTOList(messageRepository.findAll());
     }
 
-   /* @Override
-    public List<MessageDTO> findAllMessagesForUser(){
-        return messageMapper.toMessageDTOList(messageRepository.findByClientUuid(LoggedUserUtils.getLoggedUser().getUuid()))
 
-    }*/
 
-    /*@Override
-    public Page<Message> findAll(Pageable pageable) {
-        //return new PageImpl<MessageDTO>(messageMapper.toMessageDTOList(messageRepository.findAll()));
-        return messageRepository.findAll(pageable);
-    }*/
+    @Override
+    public List<MessageDTO> findAllPaginated(Pageable pageable){
+        List<Message> content = messageRepository.findAll(pageable).getContent();
+        return messageMapper.toMessageDTOList(content);
+    }
+
+
+    //   @Transactional
+//    @Override
+   /// public Page<MessageDTO> findAllPaginated(Pageable pageable) {
+       // List<Message> messages = messageRepository.findAll(new PageRequest(page, size)).getContent();
+       // return (List)messageMapper.toMessageDTOList(messages);
+       // return messageMapper.toMessageDTOList(messageRepository.findAll(pageable));
+   // }
+
+
+
+
 
 }

@@ -3,6 +3,7 @@
 <link href="css/bootstrap.min.css" rel="stylesheet">
 <link href="css/simple-sidebar.css" rel="stylesheet">
 <link href="css/bootstrap-datetimepicker.css" rel="stylesheet">
+
 <style type="text/css">  </style>
 
 
@@ -10,23 +11,15 @@
 
 <div ng-view >
 </div>
-<p> Hello!</p>
-
-<div ng-controller="AllMessagesController">
-    <div class="panel panel-default" ng-repeat="message in messages">
-        <p> The Id is {{message.id}}</p>
-        <p> The Message is {{message.message}}</p>
-        <p> The Message is from: {{message.from.firstName}}</p>
-        <p> The Message is to: {{message.to.firstName}}</p>
-    </div>
 
 <script src="js/jquery.min.js" type="text/javascript"></script>
 <script src="js/angular.min.js" type="text/javascript"></script>
 <script src="js/angular-route.min.js" type="text/javascript"></script>
 <script src="js/angular-resource.min.js" type="text/javascript"></script>
 <script src="js/respond.min.js" type="text/javascript"></script>
+<script src="js/bootstrap.min.js" type="text/javascript"></script>
+<script src="node_modules/angular-smart-table/dist/smart-table.js"></script>
+<script src="js/moment.min.js" type="text/javascript"></script>
 <script src="main.js"></script>
-</div>
-
 </body>
 </html>
