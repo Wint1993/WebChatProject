@@ -2,18 +2,20 @@ package com.sda.model;
 
 
 import javax.persistence.*;
+import javax.validation.constraints.NotNull;
 import java.time.LocalTime;
 
 @Entity
+@Table(name = "Message")
 public class Message {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
+    @NotNull
+    @Column
     private String message;
-
-   // private LocalTime time;
 
     @ManyToOne(cascade = {CascadeType.ALL})
     @JoinColumn(name = "client_from")
@@ -64,11 +66,4 @@ public class Message {
         this.clientTo = clientTo;
     }
 
-   /* public LocalTime getTime() {
-        return time;
-    }
-
-    public void setTime(LocalTime time) {
-        this.time = time;
-    }*/
 }

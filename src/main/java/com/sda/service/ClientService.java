@@ -17,8 +17,8 @@ public interface ClientService {
     ClientDTO create(ClientDTO clientDTO);
     Long countMembers();
     Page <Client> listAllByPage(Pageable pageable);
-
-
+  //  void registration();
+    void saveClient(Client client);
 
     //  List<ClientDTO> findAll(int firstResult, int maxResult);
    // Page<ClientDTO> clientDTOPageable(Pageable pageable);

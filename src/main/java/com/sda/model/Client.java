@@ -1,7 +1,13 @@
 package com.sda.model;
 
+import com.sda.utils.UserRoles;
+import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.authority.SimpleGrantedAuthority;
+import org.springframework.security.core.userdetails.UserDetails;
+
 import javax.persistence.*;
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.List;
 
 
@@ -9,7 +15,8 @@ import java.util.List;
  * Created by Błażej on 2017-07-26.
  */
 @Entity
-public class Client {
+@Table(name = "Client")
+public class Client implements UserDetails {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -17,18 +24,30 @@ public class Client {
 
     private String firstName;
 
+    private String login;
+
+    private String passwordConfirm;
+
     private String lastName;
 
     private String email;
 
+    @Column(unique = true)
     private String uuid;
+
+    private String password;
+
+    @Enumerated
+    private UserRoles userRole;
 
     @OneToMany(mappedBy = "clientFrom", cascade = {CascadeType.ALL})
     private List<Message> messagesSent = new ArrayList<>();
 
 
-    public Client(Long id, String firstName, String lastName, String email,String uuid){
+    public Client(Long id, String password,String passwordConfirm, String firstName, String lastName, String email,String uuid){
         this.id = id;
+        this.passwordConfirm = passwordConfirm;
+        this.password = password;
         this.firstName = firstName;
         this.lastName = lastName;
         this.email = email;
@@ -38,6 +57,14 @@ public class Client {
     public Client() {
 
     }
+    public UserRoles getUserRole() {
+        return userRole;
+    }
+
+    public void setUserRole(UserRoles userRole) {
+        this.userRole = userRole;
+    }
+
 
     public Long getId() {
         return id;
@@ -70,6 +97,7 @@ public class Client {
     public void setEmail(String email) {
         this.email = email;
     }
+
     public String getUuid() {
         return uuid;
     }
@@ -81,17 +109,78 @@ public class Client {
     public List<Message> getMessagesSent() {
         return messagesSent;
     }
+
     public void setMessagesSent(List<Message> messagesSent) {
         this.messagesSent = messagesSent;
     }
 
-   public static class Builder{
+    @Override
+    public Collection<? extends GrantedAuthority> getAuthorities() {
+        ArrayList<SimpleGrantedAuthority> list = new ArrayList<>();
+        list.add(new SimpleGrantedAuthority(userRole.name()));
+        return list;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
+    @Override
+    public String getPassword() {
+       return password;
+    }
+
+    @Override
+    public String getUsername() {
+        return uuid;
+    }
+
+    @Override
+    public boolean isAccountNonExpired() {
+        return true;
+    }
+
+    @Override
+    public boolean isAccountNonLocked() {
+        return true;
+    }
+
+    @Override
+    public boolean isCredentialsNonExpired() {
+        return true;
+    }
+
+    @Override
+    public boolean isEnabled() {
+        return true;
+    }
+
+    public String getLogin() {
+        return login;
+    }
+
+    public void setLogin(String login) {
+        this.login = login;
+    }
+
+    public String getPasswordConfirm() {
+        return passwordConfirm;
+    }
+
+    public void setPasswordConfirm(String passwordConfirm) {
+        this.passwordConfirm = passwordConfirm;
+    }
+
+    public static class Builder{
 
         private Long id;
         private String firstName;
         private String lastName;
         private String email;
         private String uuid;
+        private String passwordConfirm;
+
+        private String password;
 
         public Builder id(Long id){
             this.id = id;
@@ -119,14 +208,28 @@ public class Client {
             this.uuid = uuid;
             return this;
         }
+
+        public Builder password(String password){
+            this.password = password;
+            return this;
+        }
+
+        public Builder passwordConfirm(String passwordConfirm){
+            this.passwordConfirm = passwordConfirm;
+            return this;
+        }
+
+
         public Client build(){
             return of(this);
         }
 
         private Client of(Builder builder){
-            return new Client(id,firstName,lastName,email,uuid);
+            return new Client(id,firstName,lastName,email,uuid, password,passwordConfirm);
         }
     }
+
+
 
 
 }

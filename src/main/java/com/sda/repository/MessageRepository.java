@@ -13,6 +13,6 @@ import java.util.List;
 @Repository
 public interface MessageRepository extends JpaRepository<Message, Long> {
 
-    Page<Message> findAll(Pageable pageable);
+  //  Page<MessageDTO> findAll(int page,int size);
    // List<MessageDTO> findByClientUuid(String uuid);
 }

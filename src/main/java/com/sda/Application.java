@@ -23,13 +23,10 @@ import static springfox.documentation.builders.PathSelectors.regex;
 @SpringBootApplication
 @EnableSwagger2
 public class Application {
-  // testowanie za pomocą mokito
 
     public static void main(String[] args) {
         SpringApplication.run(Application.class, args);
     }
-
-
 
     @Bean
     public Docket newsApi() {

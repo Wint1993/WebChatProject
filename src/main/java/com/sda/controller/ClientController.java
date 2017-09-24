@@ -48,6 +48,11 @@ public class ClientController {
         return clientService.findAll();
     }
 
+    @RequestMapping(value = "/registration", method = POST)
+    public void registration(){
+      //  return clientService.registration();
+    }
+
    /* public List<ClientDTO> findAllMessagesForUser(){
         return clientService.findAllMessagesForUser();
     }*/

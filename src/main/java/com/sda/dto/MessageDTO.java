@@ -6,6 +6,7 @@ import java.time.LocalTime;
 
 public class MessageDTO {
 
+
     private Long id;
     private String message;
 

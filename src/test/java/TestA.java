@@ -25,9 +25,7 @@ public class TestA {
 
     @Test
     public void finByName(){
-        Client blazej = new Client(1l,"blazej","r","c","1");
-        System.out.println(blazej.toString());
-        ClientDTO blazej1 = clientMapper.toClientDTO(blazej);
+
     }
 
     public static void main(String[] args) {
