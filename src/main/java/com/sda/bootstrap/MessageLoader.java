@@ -34,12 +34,15 @@ public class MessageLoader implements ApplicationListener<ContextRefreshedEvent>
         client.setFirstName("Blazej");
         client.setUuid("1");
         client.setLastName("Rejnowski");
+
         clientRepository.save(client);
 
         Client client1 = new Client();
         client1.setFirstName("Piotr");
+
         client1.setUuid("2");
         client1.setLastName("Rejnowski");
+
         clientRepository.save(client1);
 
         Message message = new Message();
@@ -48,6 +51,7 @@ public class MessageLoader implements ApplicationListener<ContextRefreshedEvent>
         message.setClientTo(client);
         message.setClientFrom(client1);
         messageRepository.save(message);
+
 
         Message message1 = new Message();
         message1.setId(2l);
@@ -95,7 +99,6 @@ public class MessageLoader implements ApplicationListener<ContextRefreshedEvent>
         message6.setClientFrom(client);
         message6.setClientTo(client1);
         messageRepository.save(message6);
-
 
 
         log.info("Saved message - id" + message.getId());

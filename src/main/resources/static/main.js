@@ -7,6 +7,11 @@ chat.config(function ($routeProvider) {
                 controller: 'MessagesController',
                 templateUrl: 'messages.html'
             })
+        .when('/',
+            {
+                controller: 'MessagesController',
+                templateUrl: 'messages.html'
+            })
         .when('/login',{
             controller: 'LoginController',
             templateUrl: 'login.html'
@@ -19,6 +24,7 @@ chat.config(function ($routeProvider) {
 });
 
 chat.service('messageService', function () {
+
     var message = {};
 
     var addMessage = function (v) {
@@ -34,6 +40,7 @@ chat.service('messageService', function () {
     };
 
 });
+
 
 chat.controller('LoginController',function () {
 
@@ -60,6 +67,8 @@ chat.controller('RegisterController',function ($scope) {
 
 });
 
+
+
 chat.controller('MessagesController', function ($scope, $window, $http) {
     $scope.transfer = {};
     $scope.error = false;
@@ -70,6 +79,7 @@ chat.controller('MessagesController', function ($scope, $window, $http) {
         .then(function (response) {
             $scope.messages = response.data;
         });
+
 
     $scope.newMessage = '';
     $scope.addMessages = function(){
@@ -101,5 +111,4 @@ chat.controller('MessagesController', function ($scope, $window, $http) {
 
 
     };
-
 });
