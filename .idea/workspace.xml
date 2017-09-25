@@ -1,13 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="5435526a-7240-41d7-ab62-c8c554c3b94c" name="Default" comment="new workspace">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/resources/static/allUsers.html" />
+    <list default="true" id="5435526a-7240-41d7-ab62-c8c554c3b94c" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pom.xml" afterPath="$PROJECT_DIR$/pom.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/sda/bootstrap/MessageLoader.java" afterPath="$PROJECT_DIR$/src/main/java/com/sda/bootstrap/MessageLoader.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/static/main.js" afterPath="$PROJECT_DIR$/src/main/resources/static/main.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/static/register.html" afterPath="$PROJECT_DIR$/src/main/resources/static/register.html" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -999,7 +994,7 @@
       <workItem from="1506291368533" duration="1213000" />
       <workItem from="1506292630997" duration="2251000" />
       <workItem from="1506332524953" duration="2627000" />
-      <workItem from="1506336289545" duration="3347000" />
+      <workItem from="1506336289545" duration="3376000" />
     </task>
     <task id="LOCAL-00001" summary="Add js and view">
       <created>1502986940693</created>
@@ -1022,7 +1017,14 @@
       <option name="project" value="LOCAL" />
       <updated>1506338318779</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="new workspace">
+      <created>1506341283472</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1506341283472</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -1058,7 +1060,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="316601000" />
+    <option name="totallyTimeSpent" value="316630000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
