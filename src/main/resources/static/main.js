@@ -71,7 +71,7 @@ chat.controller('RegisterController',function ($scope) {
                 "firstName": $scope.firstName,
                 "lastName": $scope.lastName,
                 "login": $scope.login,
-                "email": $scope.email,
+                "email": "",
                 "password": $scope.password,
                 "uuid": ""
             }.success(function (result) {
