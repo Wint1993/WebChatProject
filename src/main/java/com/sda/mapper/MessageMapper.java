@@ -6,8 +6,6 @@ import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
 import org.mapstruct.Mappings;
 import org.mapstruct.ReportingPolicy;
-import org.springframework.data.domain.Page;
-
 import java.util.List;
 
 @Mapper(componentModel = "spring", uses = {ClientMapper.class},unmappedTargetPolicy = ReportingPolicy.IGNORE)

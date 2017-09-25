@@ -43,14 +43,15 @@ public class MessageLoader implements ApplicationListener<ContextRefreshedEvent>
         clientRepository.save(client1);
 
         Message message = new Message();
-        message.setId(1l);
+        message.setId(1L);
         message.setMessage("Siema");
         message.setClientTo(client);
         message.setClientFrom(client1);
         messageRepository.save(message);
 
+
         Message message1 = new Message();
-        message1.setId(2l);
+        message1.setId(2L);
         message1.setMessage("Elo");
         message1.setClientFrom(client);
         message1.setClientTo(client1);
@@ -58,7 +59,7 @@ public class MessageLoader implements ApplicationListener<ContextRefreshedEvent>
 
 
         Message message2 = new Message();
-        message2.setId(3l);
+        message2.setId(3L);
         message2.setMessage("Czesc");
         message2.setClientFrom(client);
         message2.setClientTo(client1);
@@ -66,7 +67,7 @@ public class MessageLoader implements ApplicationListener<ContextRefreshedEvent>
 
 
         Message message3 = new Message();
-        message3.setId(4l);
+        message3.setId(4L);
         message3.setMessage("Siemandero kuzyn");
         message3.setClientFrom(client);
         message3.setClientTo(client1);
@@ -74,7 +75,7 @@ public class MessageLoader implements ApplicationListener<ContextRefreshedEvent>
 
 
         Message message4 = new Message();
-        message4.setId(5l);
+        message4.setId(5L);
         message4.setMessage("Co tam?");
         message4.setClientFrom(client);
         message4.setClientTo(client1);
@@ -82,7 +83,7 @@ public class MessageLoader implements ApplicationListener<ContextRefreshedEvent>
 
 
         Message message5 = new Message();
-        message5.setId(6l);
+        message5.setId(6L);
         message5.setMessage("Witaj");
         message5.setClientFrom(client);
         message5.setClientTo(client1);
@@ -95,7 +96,6 @@ public class MessageLoader implements ApplicationListener<ContextRefreshedEvent>
         message6.setClientFrom(client);
         message6.setClientTo(client1);
         messageRepository.save(message6);
-
 
 
         log.info("Saved message - id" + message.getId());

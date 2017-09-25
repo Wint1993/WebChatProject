@@ -7,6 +7,7 @@ chat.config(function ($routeProvider) {
                 controller: 'MessagesController',
                 templateUrl: 'messages.html'
             })
+
         .when('/login',{
             controller: 'LoginController',
             templateUrl: 'login.html'
@@ -15,10 +16,15 @@ chat.config(function ($routeProvider) {
             controller: 'RegisterController',
             templateUrl: 'register.html'
         })
+        .when('/clients',{
+            controller: 'ClientController',
+            templateUrl: 'allUsers.html'
+        })
         .otherwise({redirectTo: '/'});
 });
 
 chat.service('messageService', function () {
+
     var message = {};
 
     var addMessage = function (v) {
@@ -35,30 +41,64 @@ chat.service('messageService', function () {
 
 });
 
+chat.service('clientService',function(){
+    var client = {};
+
+    var addClient = function (v) {
+        client = v;
+    };
+    var getClient = function () {
+        return client;
+    };
+    return {
+        addClient: addClient,
+        getClient: getClient
+    };
+
+
+});
+
+
 chat.controller('LoginController',function () {
 
     console.log("something");
 });
 
-chat.controller('RegisterController',function ($scope) {
+
+chat.controller('ClientController', function ($scope, $window, $http) {
+    $scope.transfer = {};
+    $scope.error = false;
+
+    console.log("All clients controller");
+
+    $http
+        .get('/api/clients/all')
+        .then(function (response) {
+            $scope.clients = response.data;
+        });
+});
+
+chat.controller('RegisterController',function ($scope,$http) {
     $scope.transfer = {};
     $scope.register = function () {
+
         $http.post('api/clients/create',{
-                "email": "",
+                "email": $scope.email1,
                 "firstName": $scope.firstName,
                 "lastName": $scope.lastName,
                 "login": $scope.login,
                 "password": $scope.password,
                 "uuid": ""
-            }.success(function (result) {
+            }).success(function (result) {
+                $scope.clients = result;
+            }).error(function(data, status){
+                console.log(data);
+            });
 
-        }).error(function(data, status){
-            console.log(data);
-        })
-
-        )}
+        };
 
 });
+
 
 chat.controller('MessagesController', function ($scope, $window, $http) {
     $scope.transfer = {};
@@ -70,6 +110,7 @@ chat.controller('MessagesController', function ($scope, $window, $http) {
         .then(function (response) {
             $scope.messages = response.data;
         });
+
 
     $scope.newMessage = '';
     $scope.addMessages = function(){
@@ -101,5 +142,4 @@ chat.controller('MessagesController', function ($scope, $window, $http) {
 
 
     };
-
 });

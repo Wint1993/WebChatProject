@@ -6,13 +6,12 @@ import java.time.LocalTime;
 
 public class MessageDTO {
 
-
     private Long id;
     private String message;
 
     private ClientDTO from;
     private ClientDTO to;
-   // private LocalTime localTime;
+
 
     public MessageDTO(){}
 
@@ -48,11 +47,4 @@ public class MessageDTO {
         this.to = to;
     }
 
-    /*public LocalTime getLocalTime() {
-        return localTime;
-    }
-
-    public void setLocalTime(LocalTime localTime) {
-        this.localTime = localTime;
-    }*/
 }

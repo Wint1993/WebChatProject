@@ -1,16 +1,19 @@
 package com.sda.service.impl;
 
 import com.sda.dto.ClientDTO;
+
+import com.sda.dto.MessageDTO;
 import com.sda.mapper.ClientMapper;
 import com.sda.model.Client;
 import com.sda.repository.ClientRepository;
 import com.sda.service.ClientService;
+
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.domain.Page;
-import org.springframework.data.domain.Pageable;
+
 import org.springframework.orm.hibernate4.HibernateTemplate;
 import org.springframework.stereotype.Service;
+
 import javax.transaction.Transactional;
 import java.util.List;
 import java.util.UUID;
@@ -19,6 +22,7 @@ import java.util.stream.Collectors;
 @Service
 @Transactional
 public class ClientServiceImpl implements ClientService {
+
 
     private HibernateTemplate hibernateTemplate;
 
@@ -40,6 +44,8 @@ public class ClientServiceImpl implements ClientService {
     public List<ClientDTO> findOne(String name){
         List<ClientDTO> list = clientMapper.toClientDTOList(clientRepository.findAll());
         return list.stream().filter(x->x.getFirstName().equals(name)).collect(Collectors.toList());
+
+        //return list.stream().filter(c-> name.equals(c.getFirstName())).collect(Collectors.toList());
     }
 
     @Override
@@ -55,10 +61,6 @@ public class ClientServiceImpl implements ClientService {
         return clientRepository.count();
     }
 
-    @Override
-    public Page<Client> listAllByPage(Pageable pageable){
-        return clientRepository.findAll(pageable);
-    }
 
     @Override
     public void saveClient(Client client) {

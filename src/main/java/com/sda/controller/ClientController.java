@@ -53,9 +53,7 @@ public class ClientController {
       //  return clientService.registration();
     }
 
-   /* public List<ClientDTO> findAllMessagesForUser(){
-        return clientService.findAllMessagesForUser();
-    }*/
+
 
 
 

@@ -35,6 +35,7 @@ public class MessageServiceImpl implements MessageService {
         this.messageRepository = messageRepository;
     }
 
+
     @Override
     public MessageDTO create(MessageDTO messageDTO){
 
@@ -50,6 +51,20 @@ public class MessageServiceImpl implements MessageService {
     public List<MessageDTO> findAll() {
         return (List)messageMapper.toMessageDTOList(messageRepository.findAll());
     }
+
+
+
+    @Override
+    public List<MessageDTO> findAllPaginated(Pageable pageable){
+        List<Message> content = messageRepository.findAll(pageable).getContent();
+        return messageMapper.toMessageDTOList(content);
+    }
+
+
+
+
+
+
 
 
 }
