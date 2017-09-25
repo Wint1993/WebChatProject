@@ -6,16 +6,19 @@
 </head>
 <body>
 <div class="panel panel-default" dir-paginate= "client in clients|itemsPerPage:5">
+JOL
+    <div class="col-sm-3">
+        <div class="panel-default"> {{client.id}}</div>
+    </div>
+    <div class="col-sm-3">
+        <div class="panel-default"> {{client.firstName}}</div>
+    </div>
+    <div class="col-sm-3">
+        <div class="panel-default"> {{client.lastName}}</div>
+    </div>  <div class="col-sm-3">
+        <div class="panel-default"> {{client.email}}</div>
+    </div>
 
-    <div class="col-sm-3">
-        <div class="panel-default"> {{message.id}}</div>
-    </div>
-    <div class="col-sm-3">
-        <div class="panel-default"> {{message.firstName}}</div>
-    </div>
-    <div class="col-sm-3">
-        <div class="panel-default"> {{message.lastName}}</div>
-    </div>
 
 
 </div>

@@ -45,6 +45,19 @@ chat.service('messageService', function () {
 
 });
 
+chat.service('clientService',function(){
+    var client = {};
+
+    var addClient = function (v) {
+        client = v;
+    };
+    var getClient = function () {
+        return client;
+    };
+
+
+});
+
 
 chat.controller('LoginController',function () {
 
@@ -72,6 +85,8 @@ chat.controller('RegisterController',function ($scope) {
 });
 
 chat.controller('ClientController', function ($scope, $window, $http) {
+    $scope.transfer = {};
+    $scope.error = false;
     $http
         .get('/api/clients/all')
         .then(function (response) {
