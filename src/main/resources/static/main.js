@@ -20,6 +20,10 @@ chat.config(function ($routeProvider) {
             controller: 'RegisterController',
             templateUrl: 'register.html'
         })
+        .when('/clients',{
+            controller: 'ClientController',
+            templateUrl: 'allUsers.html'
+        })
         .otherwise({redirectTo: '/'});
 });
 
@@ -51,10 +55,10 @@ chat.controller('RegisterController',function ($scope) {
     $scope.transfer = {};
     $scope.register = function () {
         $http.post('api/clients/create',{
-                "email": "",
                 "firstName": $scope.firstName,
                 "lastName": $scope.lastName,
                 "login": $scope.login,
+                "email": $scope.email,
                 "password": $scope.password,
                 "uuid": ""
             }.success(function (result) {
@@ -67,7 +71,14 @@ chat.controller('RegisterController',function ($scope) {
 
 });
 
+chat.controller('ClientController', function ($scope, $window, $http) {
+    $http
+        .get('/api/clients/all')
+        .then(function (response) {
+            $scope.clients = response.data;
+        });
 
+});
 
 chat.controller('MessagesController', function ($scope, $window, $http) {
     $scope.transfer = {};
