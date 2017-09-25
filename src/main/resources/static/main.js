@@ -139,7 +139,5 @@ chat.controller('MessagesController', function ($scope, $window, $http) {
         });
 
 
-
-
     };
 });
