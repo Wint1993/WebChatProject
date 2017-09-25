@@ -241,7 +241,7 @@
     <handled-path value="$PROJECT_DIR$/node_modules" />
     <handled-path value="$PROJECT_DIR$/src/main/resources/static/node_modules" />
   </component>
-  <component name="ProjectFrameBounds">
+  <component name="ProjectFrameBounds" extendedState="1">
     <option name="x" value="575" />
     <option name="y" value="122" />
     <option name="width" value="1346" />
@@ -970,7 +970,7 @@
       <workItem from="1506277934031" duration="3266000" />
       <workItem from="1506291368533" duration="1213000" />
       <workItem from="1506292630997" duration="2251000" />
-      <workItem from="1506332524953" duration="2482000" />
+      <workItem from="1506332524953" duration="2627000" />
     </task>
     <task id="LOCAL-00001" summary="Add js and view">
       <created>1502986940693</created>
@@ -1015,7 +1015,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="313109000" />
+    <option name="totallyTimeSpent" value="313254000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -1027,7 +1027,7 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="575" y="122" width="1346" height="898" extended-state="0" />
+    <frame x="575" y="122" width="1346" height="898" extended-state="1" />
     <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
