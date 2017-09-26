@@ -28,7 +28,7 @@ public class MessageLoader implements ApplicationListener<ContextRefreshedEvent>
 
     @Override
     public void onApplicationEvent(ContextRefreshedEvent event){
-
+/*
 
         Client client = new Client();
         client.setFirstName("Blazej");
@@ -100,6 +100,6 @@ public class MessageLoader implements ApplicationListener<ContextRefreshedEvent>
 
         log.info("Saved message - id" + message.getId());
 
-
+*/
     }
 }
