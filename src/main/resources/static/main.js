@@ -7,6 +7,11 @@ chat.config(function ($routeProvider) {
                 controller: 'MessagesController',
                 templateUrl: 'messages.html'
             })
+ .when('/',
+            {
+                controller: 'MessagesController',
+                templateUrl: 'messages.html'
+            })
 
         .when('/login',{
             controller: 'LoginController',
