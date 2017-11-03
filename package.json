@@ -5,5 +5,26 @@
       "babel-runtime": "npm:babel-runtime@^5.8.24",
       "core-js": "npm:core-js@^1.1.4"
     }
-  }
+  },
+  "dependencies": {
+    "ng-table": "^4.0.0"
+  },
+  "name": "chat",
+  "version": "1.0.0",
+  "description": "something",
+  "main": "main.js",
+  "devDependencies": {},
+  "scripts": {
+    "test": "cos"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Wint1993/WebChatProject.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Wint1993/WebChatProject/issues"
+  },
+  "homepage": "https://github.com/Wint1993/WebChatProject#readme"
 }

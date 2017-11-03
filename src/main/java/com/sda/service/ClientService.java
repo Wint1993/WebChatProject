@@ -15,14 +15,7 @@ public interface ClientService {
     List<ClientDTO> findAll();
     List<ClientDTO> findOne(String name);
     ClientDTO create(ClientDTO clientDTO);
-    Long countMembers();
-    void saveClient(Client client);
+    String getLoggedUserDetails();
 
-
-
-
-    //  List<ClientDTO> findAll(int firstResult, int maxResult);
-   // Page<ClientDTO> clientDTOPageable(Pageable pageable);
-   // List<ClientDTO> findBySearchName(String searchTerm, Pageable pageRequest);
-
+    ClientDTO getProfil();
 }

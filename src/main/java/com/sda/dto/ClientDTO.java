@@ -1,26 +1,25 @@
 package com.sda.dto;
 
+import org.hibernate.validator.constraints.NotEmpty;
+
 import javax.validation.constraints.NotNull;
 
 public class ClientDTO {
 
-    @NotNull
+
     private String uuid;
 
-    @NotNull
     private String firstName;
 
-    @NotNull
     private String lastName;
 
-    @NotNull
     private String login;
 
-    @NotNull
-    private String email;
+    private String email1;
 
-    @NotNull
     private String password;
+
+    private String city;
 
     public ClientDTO(){ }
 
@@ -55,13 +54,20 @@ public class ClientDTO {
     public void setPassword(String password) {
         this.password = password;
     }
-
-    public String getEmail() {
-        return email;
+    public String getEmail1() {
+        return email1;
     }
 
-    public void setEmail(String email) {
-        this.email = email;
+    public void setEmail1(String email1) {
+        this.email1 = email1;
+    }
+
+    public String getCity() {
+        return city;
+    }
+
+    public void setCity(String city) {
+        this.city = city;
     }
 
     public String getLogin() {
@@ -73,12 +79,4 @@ public class ClientDTO {
     }
 
 
-    @Override
-    public String toString() {
-        return "ClientDTO{" +
-                "uuid='" + uuid + '\'' +
-                ", firstName='" + firstName + '\'' +
-                ", lastName='" + lastName + '\'' +
-                '}';
-    }
 }

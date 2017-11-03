@@ -13,7 +13,7 @@ public interface ClientMapper {
 
     @Mappings({
             @Mapping(source = "password", target = "password"),
-            @Mapping(source = "email", target = "email"),
+            @Mapping(source = "email1", target = "email1"),
             @Mapping(source = "login", target = "login"),
 
     })
@@ -21,7 +21,7 @@ public interface ClientMapper {
 
     @Mappings({
             @Mapping(source = "password", target = "password"),
-            @Mapping(source = "email", target = "email"),
+            @Mapping(source = "email1", target = "email1"),
             @Mapping(source = "login", target = "login"),
 
     })

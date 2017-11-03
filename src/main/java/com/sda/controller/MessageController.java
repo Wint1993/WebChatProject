@@ -39,4 +39,16 @@ public class MessageController {
         return messageService.findAll();
     }
 
+    @RequestMapping(value = "/allToMe", method = GET)
+    public List<MessageDTO> findAllToMe() {
+        LOG.info("Received request to all messages.");
+        return messageService.findAllTo();
+    }
+
+    @RequestMapping(value = "/allFromMe", method = GET)
+    public List<MessageDTO> findAllFromMe() {
+        LOG.info("Received request to all messages.");
+        return messageService.findAllFrom();
+    }
+
 }

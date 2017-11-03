@@ -12,8 +12,8 @@ import java.util.List;
 public interface MessageMapper {
 
     @Mappings({
-            @Mapping(source = "from", target = "clientFrom"),
-            @Mapping(source = "to", target = "clientTo")
+              @Mapping(source = "from", target = "clientFrom"),
+             @Mapping(source = "to", target = "clientTo")
     })
     Message toMessage(MessageDTO messageDTO);
 

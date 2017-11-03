@@ -2,16 +2,18 @@ package com.sda.dto;
 
 import org.mapstruct.Mapping;
 
+import javax.persistence.Column;
+import java.time.LocalDateTime;
 import java.time.LocalTime;
 
 public class MessageDTO {
 
     private Long id;
     private String message;
-
     private ClientDTO from;
     private ClientDTO to;
-
+    private LocalDateTime time;
+    private String timeString;
 
     public MessageDTO(){}
 
@@ -47,4 +49,19 @@ public class MessageDTO {
         this.to = to;
     }
 
+    public LocalDateTime getTime() {
+        return time;
+    }
+
+    public void setTime(LocalDateTime time) {
+        this.time = time;
+    }
+
+    public String getTimeString() {
+        return timeString;
+    }
+
+    public void setTimeString(String timeString) {
+        this.timeString = timeString;
+    }
 }

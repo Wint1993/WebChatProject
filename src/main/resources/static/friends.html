@@ -1,0 +1,94 @@
+<div lang="en">
+    <head>
+        <meta charset="utf-8">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+        <link rel="stylesheet" href="style.css">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+        <link rel="stylesheet"; href="https://unpkg.com/ng-table@2.0.2/bundles/ng-table.min.css">
+        <script src="https://unpkg.com/ng-table@2.0.2/bundles/ng-table.min.js"></script>
+    </head>
+
+    <style>
+        table, th, td {
+            border: 1px solid black;
+        }
+
+        ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            width: 200px;
+            background-color: #f1f1f1;
+        }
+
+        li a {
+            display: block;
+            color: #000;
+            padding: 8px 16px;
+            text-decoration: none;
+        }
+
+        li a.active {
+            background-color: #4CAF50;
+            color: white;
+        }
+
+        li a:hover:not(.active) {
+            background-color: #555;
+            color: white;
+        }
+    </style>
+
+    <div class="col-xs-2" >
+        <ul >
+            <li><a ng-href="/#/register">Home</a></li>
+            <li><a ng-href="/#/sent">Sent messages</a></li>
+            <li><a href="/#/received">Received messages</a></li>
+            <li><a ng-href="/#/profil">Profil </a></li>
+            <li><a class="active" ng-href="/#/friends">Friends</a></li>
+            <li><a ng-href="/api/logout">Logout</a></li>
+
+
+        </ul>
+
+    </div>
+
+
+    <div class="col-xs-8">
+
+        <table ng-table="vm.usersTable" class="table table-condensed table-bordered table-striped" show-filter="true">
+            <tr ng-repeat="message in messages">
+                <td title="'Imie'" >
+                    {{message.firstName}}</td>
+                <td title="'Naziwsko'" >
+                    {{message.lastName}}</td>
+            </tr>
+        </table>
+
+
+        <div class = "panel panel-default">
+            Add message:
+            Text <input type="text" ng-model="newMessage" />
+            To <input type="text" ng-model="messageTo" />
+            <!-- Text <input type="text" ng-model="transfer.message" />
+             To <input type="text" ng-model="transfer.to"/> -->
+            <a href="#" class="btn btn-default" ng-click="addMessages()"> Add</a>
+        </div>
+
+
+        <p><strong>Page:</strong> {{tableParams.page()}}
+        <p><strong>Count per page:</strong> {{tableParams.count()}}
+
+
+    </div>
+    </html>
+
+
+    ​
+
+    ​
+
+
+

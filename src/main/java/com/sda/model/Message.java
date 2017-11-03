@@ -3,6 +3,7 @@ package com.sda.model;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
+import java.time.LocalDateTime;
 import java.time.LocalTime;
 
 @Entity
@@ -12,6 +13,12 @@ public class Message {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
+
+    @Column
+    private LocalDateTime time;
+
+    @Column
+    private String timeString;
 
     @NotNull
     @Column
@@ -66,4 +73,19 @@ public class Message {
         this.clientTo = clientTo;
     }
 
+    public LocalDateTime getTime() {
+        return time;
+    }
+
+    public void setTime(LocalDateTime time) {
+        this.time = time;
+    }
+
+    public String getTimeString() {
+        return timeString;
+    }
+
+    public void setTimeString(String timeString) {
+        this.timeString = timeString;
+    }
 }

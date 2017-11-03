@@ -28,12 +28,15 @@ public class MessageLoader implements ApplicationListener<ContextRefreshedEvent>
 
     @Override
     public void onApplicationEvent(ContextRefreshedEvent event){
-/*
+
 
         Client client = new Client();
         client.setFirstName("Blazej");
-        client.setUuid("1");
+        client.setUuid("11");
         client.setLastName("Rejnowski");
+        client.setLogin("a");
+        client.setPassword("a");
+        client.setEmail1("rejnowski@gmail.com");
         clientRepository.save(client);
 
         Client client1 = new Client();
@@ -42,11 +45,19 @@ public class MessageLoader implements ApplicationListener<ContextRefreshedEvent>
         client1.setLastName("Rejnowski");
         clientRepository.save(client1);
 
+        Client client2 = new Client();
+        client2.setFirstName("Jurek");
+        client2.setPassword("b");
+        client2.setLogin("b");
+        client2.setUuid("3");
+        client2.setLastName("Rejnowski");
+        clientRepository.save(client2);
+
         Message message = new Message();
         message.setId(1L);
         message.setMessage("Siema");
-        message.setClientTo(client);
-        message.setClientFrom(client1);
+        message.setClientTo(client1);
+        message.setClientFrom(client2);
         messageRepository.save(message);
 
 
@@ -97,9 +108,22 @@ public class MessageLoader implements ApplicationListener<ContextRefreshedEvent>
         message6.setClientTo(client1);
         messageRepository.save(message6);
 
+        Message message7 = new Message();
+        message7.setId(8l);
+        message7.setMessage("JOLLL");
+        message7.setClientFrom(client);
+        message7.setClientTo(client2);
+        messageRepository.save(message7);
 
+
+        Message message8 = new Message();
+        message8.setId(9l);
+        message8.setMessage("Cosss");
+        message8.setClientFrom(client2);
+        message8.setClientTo(client);
+        messageRepository.save(message8);
         log.info("Saved message - id" + message.getId());
 
-*/
+
     }
 }

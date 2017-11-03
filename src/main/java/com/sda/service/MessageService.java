@@ -14,14 +14,8 @@ public interface MessageService {
 
     MessageDTO create(MessageDTO messageDTO);
     List<MessageDTO> findAll();
-   // List<MessageDTO> findAllMessagesForUser();
-   // Page<MessageDTO> findAllPaginated(Pageable pageable);
-    //Page<Message> findAll(Pageable pageable);
-   // Page<ClientDTO> findBySearchName(String searchTerm);
+    List<MessageDTO> findAllTo();
+    List<MessageDTO> findAllFrom();
 
-    // Page<MessageDTO> findAllPaginated(Pageable pageable);
-    //Page<MessageDTO> findPaginated(int page, int size);
-
-     List<MessageDTO> findAllPaginated(Pageable pageable);
 
 }

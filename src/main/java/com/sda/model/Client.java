@@ -1,5 +1,6 @@
 package com.sda.model;
 
+import com.sda.dto.ClientDTO;
 import com.sda.utils.UserRoles;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
@@ -26,45 +27,31 @@ public class Client implements UserDetails {
 
     private String login;
 
-    private String passwordConfirm;
-
     private String lastName;
 
-    private String email;
+    private String email1;
 
     @Column(unique = true)
     private String uuid;
 
     private String password;
 
-    @Enumerated
-    private UserRoles userRole;
-
     @OneToMany(mappedBy = "clientFrom", cascade = {CascadeType.ALL})
     private List<Message> messagesSent = new ArrayList<>();
 
+ //   private List<Client> addedFriends = new ArrayList<>();
 
-    public Client(Long id, String password,String passwordConfirm, String firstName, String lastName, String email,String uuid){
+    public Client(Long id, String password, String firstName, String lastName, String email,String uuid){
         this.id = id;
-        this.passwordConfirm = passwordConfirm;
         this.password = password;
         this.firstName = firstName;
         this.lastName = lastName;
-        this.email = email;
+        this.email1 = email;
         this.uuid = uuid;
     }
 
     public Client() {
-
     }
-    public UserRoles getUserRole() {
-        return userRole;
-    }
-
-    public void setUserRole(UserRoles userRole) {
-        this.userRole = userRole;
-    }
-
 
     public Long getId() {
         return id;
@@ -90,12 +77,12 @@ public class Client implements UserDetails {
         this.lastName = lastName;
     }
 
-    public String getEmail() {
-        return email;
+    public String getEmail1() {
+        return email1;
     }
 
-    public void setEmail(String email) {
-        this.email = email;
+    public void setEmail1(String email1) {
+        this.email1 = email1;
     }
 
     public String getUuid() {
@@ -116,16 +103,14 @@ public class Client implements UserDetails {
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
-        ArrayList<SimpleGrantedAuthority> list = new ArrayList<>();
-        list.add(new SimpleGrantedAuthority(userRole.name()));
-        return list;
+        return null;
     }
 
     public void setPassword(String password) {
         this.password = password;
     }
 
-    @Override
+
     public String getPassword() {
        return password;
     }
@@ -163,13 +148,16 @@ public class Client implements UserDetails {
         this.login = login;
     }
 
-    public String getPasswordConfirm() {
-        return passwordConfirm;
+/*    public List<Client> getAddedFriends() {
+        return addedFriends;
     }
 
-    public void setPasswordConfirm(String passwordConfirm) {
-        this.passwordConfirm = passwordConfirm;
+    public void setAddedFriends(List<Client> addedFriends) {
+        this.addedFriends = addedFriends;
     }
+*/
+
+
 
     public static class Builder{
 
@@ -178,7 +166,6 @@ public class Client implements UserDetails {
         private String lastName;
         private String email;
         private String uuid;
-        private String passwordConfirm;
 
         private String password;
 
@@ -213,19 +200,12 @@ public class Client implements UserDetails {
             this.password = password;
             return this;
         }
-
-        public Builder passwordConfirm(String passwordConfirm){
-            this.passwordConfirm = passwordConfirm;
-            return this;
-        }
-
-
         public Client build(){
             return of(this);
         }
 
         private Client of(Builder builder){
-            return new Client(id,firstName,lastName,email,uuid, password,passwordConfirm);
+            return new Client(id,firstName,lastName,email,uuid, password);
         }
     }
 
